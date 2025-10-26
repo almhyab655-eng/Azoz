@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مشروع جدول HTML مقسم - الإصدار الثاني</title>
+    <style>
+        /* التنسيقات الأساسية */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+            text-align: right;
+        }
+
+        .container {
+            width: 90%; /* زيادة العرض قليلاً */
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15); /* ظل أوضح */
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        /* الهيكل الرئيسي: تقسيم عمودي 75% و 25% */
+        .main-layout {
+            display: flex;
+            flex-direction: row-reverse; /* لعرض القائمة الجانبية (25%) على اليمين */
+            min-height: 600px; /* ارتفاع أدنى لضمان رؤية التقسيم */
+        }
+
+        /* الجزء الأيمن: القائمة الجانبية (25%) */
+        .sidebar {
+            flex-basis: 25%;
+            background-color: #eaf2f8; /* لون أزرق فاتح للقائمة الجانبية */
+            padding: 25px;
+            border-right: 1px solid #d5dbdb;
+        }
+
+        /* الجزء الأيسر: المحتوى الرئيسي (75%) */
+        .content {
+            flex-basis: 75%;
+            background-color: #ffffff;
+            padding: 25px;
+        }
+
+        /* الصف العلوي في المحتوى الرئيسي: صورة عرضية */
+        .content-header {
+            width: 100%;
+            height: 150px;
+            background-color: #3498db; /* لون أزرق جذاب */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        /* الصف السفلي في المحتوى الرئيسي: تقسيم داخلي (صورة + رابط) */
+        .content-body {
+            display: flex;
+            flex-wrap: wrap; /* للسماح للعناصر بالانتقال لسطر جديد */
+            gap: 20px;
+        }
+
+        .item {
+            flex: 1 1 calc(50% - 20px); /* تقسيم إلى عمودين متساويين مع مسافة بينهما */
+            min-width: 250px;
+            height: 150px;
+            background-color: #f7f9f9;
+            border: 2px solid #bdc3c7;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 16px;
+            color: #2c3e50;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .link-item {
+            background-color: #e74c3c;
+            color: white;
+            font-weight: bold;
+        }
+
+        .link-item a {
+            color: #f1c40f;
+            text-decoration: none;
+        }
+
+        /* تنسيق القائمة الجانبية */
+        .sidebar h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            padding: 10px 0;
+            border-bottom: 1px dotted #d5dbdb;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+        .sidebar li:hover {
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="main-layout">
+
+            <!-- الجزء الأيمن: القائمة الجانبية (25%) -->
+            <div class="sidebar">
+                <h2>قوائم (25%)</h2>
+                <ul>
+                    <li>الرئيسية</li>
+                    <li>الأخبار</li>
+                    <li>الخدمات</li>
+                    <li>اتصل بنا</li>
+                </ul>
+            </div>
+
+            <!-- الجزء الأيسر: المحتوى الرئيسي (75%) -->
+            <div class="content">
+                
+                <!-- الصف العلوي: صورة عرضية 100% -->
+                <div class="content-header">
+                    صورة عرضية (100% من عرض المحتوى)
+                </div>
+
+                <!-- الصف السفلي: تقسيم داخلي (صورة + رابط) -->
+                <div class="content-body">
+                    
+                    <div class="item">صورة</div>
+                    <div class="item link-item">
+                        <a href="https://www.google.com" target="_blank">رابط</a>
+                    </div>
+                    
+                    <div class="item">صورة</div>
+                    <div class="item">صورة</div>
+                    
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
